@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/countchar/'
+url = 'http://127.0.0.1:8000/api/countwords/'
 data = {'text': "Hello world"}
 data = json.dumps(data)
 r = requests.get(url, data = data)
