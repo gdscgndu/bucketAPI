@@ -19,3 +19,14 @@ def countchar(request):
                 count[i]=1
         result = {'result': count}
         return JsonResponse(result, safe=False)
+
+def countwords(request):
+    if(request.method=="GET"):
+        json_data = request.body  # coming data
+        stream = io.BytesIO(json_data)  # created io(input/output) stream
+        textocheck = JSONParser().parse(stream)  # converted JSON to Python Data
+
+        txt = textocheck['text']
+        count=len(txt.split(' '))
+        result = {'totalwords': count}
+        return JsonResponse(result, safe=False)
