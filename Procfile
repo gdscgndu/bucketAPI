@@ -1,0 +1,1 @@
+web: gunicorn bucketAPI.wsgi --log-file -
