@@ -30,3 +30,18 @@ def countwords(request):
         count=len(txt.split(' '))
         result = {'totalwords': count}
         return JsonResponse(result, safe=False)
+def viewInstaProfile(request):
+    if(request.method=="GET"):
+        json_data = request.body  # coming data
+        stream = io.BytesIO(json_data)  # created io(input/output) stream
+        usernametocheck = JSONParser().parse(stream)  # converted JSON to Python Data
+        username = usernametocheck['username']
+        import instaloader
+        loader = instaloader.Instaloader()        
+        try:   
+            profile = instaloader.Profile.from_username(loader.context,username)                 
+            # returns link to the profile picture        
+            profile_pic = profile.profile_pic_url
+            return JsonResponse({'status':'success', 'url':profile_pic}, safe=False)
+        except:
+            return JsonResponse({'status':'failed', 'url':"null"}, safe=False)
