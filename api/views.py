@@ -37,7 +37,7 @@ def countwords(request):
 
 @csrf_exempt
 def viewInstaProfile(request, username):    
-    if(request.method=="POST"):        
+    if(request.method=="GET"):        
         import instaloader
         loader = instaloader.Instaloader()
         try:   
