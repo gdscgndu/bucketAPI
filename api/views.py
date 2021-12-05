@@ -3,7 +3,10 @@ from rest_framework import viewsets
 from rest_framework.parsers import JSONParser
 import io
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
+
+@csrf_exempt
 def countchar(request):
     if (request.method == 'GET'):
         json_data = request.body  # coming data
@@ -20,6 +23,7 @@ def countchar(request):
         result = {'result': count}
         return JsonResponse(result, safe=False)
 
+@csrf_exempt
 def countwords(request):
     if(request.method=="GET"):
         json_data = request.body  # coming data
@@ -30,14 +34,12 @@ def countwords(request):
         count=len(txt.split(' '))
         result = {'totalwords': count}
         return JsonResponse(result, safe=False)
-def viewInstaProfile(request):
-    if(request.method=="GET"):
-        json_data = request.body  # coming data
-        stream = io.BytesIO(json_data)  # created io(input/output) stream
-        usernametocheck = JSONParser().parse(stream)  # converted JSON to Python Data
-        username = usernametocheck['username']
+
+@csrf_exempt
+def viewInstaProfile(request, username):    
+    if(request.method=="POST"):        
         import instaloader
-        loader = instaloader.Instaloader()        
+        loader = instaloader.Instaloader()
         try:   
             profile = instaloader.Profile.from_username(loader.context,username)                 
             # returns link to the profile picture        
