@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.parsers import JSONParser
@@ -36,14 +37,17 @@ def countwords(request):
         return JsonResponse(result, safe=False)
 
 @csrf_exempt
-def viewInstaProfile(request, username):    
+def viewInstaProfile(request, url,username):    
     if(request.method=="GET"):        
-        import instaloader
+        import instaloader        
         loader = instaloader.Instaloader()
         try:   
             profile = instaloader.Profile.from_username(loader.context,username)                 
             # returns link to the profile picture        
             profile_pic = profile.profile_pic_url
-            return JsonResponse({'status':'success', 'url':profile_pic}, safe=False)
+            if(url==0):
+                return HttpResponseRedirect(profile_pic)
+            else:
+                return JsonResponse({'status':'success', 'url':profile_pic}, safe=False)
         except:
             return JsonResponse({'status':'failed', 'url':"null"}, safe=False)

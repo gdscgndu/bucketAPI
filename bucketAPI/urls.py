@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/countchar/',views.countchar),
 path('api/countwords/',views.countwords),
-path('api/viewInstaProfile/<str:username>', views.viewInstaProfile, name="viewInstaProfile"),
+path('api/viewInstaProfile/<int:url>/<str:username>', views.viewInstaProfile, name="viewInstaProfile"),
 ]

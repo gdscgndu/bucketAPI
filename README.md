@@ -10,3 +10,14 @@ Collection of different API's in a single repository
 Hosted at Heroku 
 `https://bucketapigdscgndu.herokuapp.com/`
 
+## View Instagram Profile Pic API
+`https://bucketapigdscgndu.herokuapp.com/api/{view_url}/viewInstaProfile/{username}`
+```
+{view_url} = 0 or 1
+{0} : To show Profile Picture
+{1} : TO show url as a JSON response
+```
+Example:
+[https://bucketapigdscgndu.herokuapp.com/api/0/viewInstaProfile/gdscgndu](https://bucketapigdscgndu.herokuapp.com/api/0/viewInstaProfile/gdscgndu)
+
+[https://bucketapigdscgndu.herokuapp.com/api/1/viewInstaProfile/gdscgndu](https://bucketapigdscgndu.herokuapp.com/api/1/viewInstaProfile/gdscgndu)
