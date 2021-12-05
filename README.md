@@ -18,6 +18,6 @@ Hosted at Heroku
 {1} : TO show url as a JSON response
 ```
 Example:
-[https://bucketapigdscgndu.herokuapp.com/api/0/viewInstaProfile/gdscgndu](https://bucketapigdscgndu.herokuapp.com/api/0/viewInstaProfile/gdscgndu)
+[https://bucketapigdscgndu.herokuapp.com/api/viewInstaProfile/0/gdscgndu](https://bucketapigdscgndu.herokuapp.com/api/viewInstaProfile/0/gdscgndu)
 
-[https://bucketapigdscgndu.herokuapp.com/api/1/viewInstaProfile/gdscgndu](https://bucketapigdscgndu.herokuapp.com/api/1/viewInstaProfile/gdscgndu)
+[https://bucketapigdscgndu.herokuapp.com/api/viewInstaProfile/1/gdscgndu](https://bucketapigdscgndu.herokuapp.com/api/viewInstaProfile/1/gdscgndu)
